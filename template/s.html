@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styleHead.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/welcomestyle.css') }}">
+  <title>TreasureHunt</b></title>
+</head>
+<body>
+  <html lang="en">
+<head>
+
+</head>
+<body>
+
+  <header>
+		<a href="/" class="logo">Treasure<b style="color: darkorange;">Hunt</b></a>
+		<ul >
+      <li ><a href="#" id="line" style="margin-right: 150px;">LeaderBoard</a></li>
+		</ul>
+    </header>
+
+    <section >
+      <div class="title">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Cambridgeslackerssaf40.jpg">
+            <span style=" text-align: center; font-size: large;"> A tightrope walker is buying his favourite thing </span>
+            <a target="_blank" href="https://www.amazon.in/JIC-Products%C2%AE-Slackline-Complete-Perfect/dp/B08HDHC94B/ref=sr_1_2?dchild=1&keywords=slack+rope&qid=1625501251&sr=8-2">
+            on this website</a>
+            <span style=" text-align: center; font-size: large;"> Which application does this guy like ? </span>
+          <form action="/user_response" onsubmit="return storeanswer()">
+            <label for="answer">Answer:</label>
+            <input type="text" id="answer" name="answer"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+        <br>
+      </div>
+
+  </section>
+
+
+
+<script>
+
+  window.addEventListener('scroll', function() {
+  let header = document.querySelector('header');
+  header.classList.toggle('sticky', window.scrollY < 0);
+});
+
+  function storeanswer() {
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+      // Store
+      // retrieve try number
+      var cur_clue = window.location.pathname.replace('/','')
+      var value = localStorage.getItem(cur_clue)
+      if (value==null) {
+        value = {'max':0}
+      }else {
+        value = JSON.parse(value)
+        value['max'] += 1
+        value[value['max']] = document.getElementById('answer')
+      }
+
+      localStorage.setItem(cur_clue, JSON.stringify(value));
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+
+  }
+
+</script>
+
+</body>
+</html>

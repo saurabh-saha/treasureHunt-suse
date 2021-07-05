@@ -9,7 +9,7 @@
 <body>
   <html lang="en">
 <head>
-  
+
 </head>
 <body>
 
@@ -22,34 +22,45 @@
 
     <section >
       <div class="title">
-          <form action="/user_response" onsubmit="return storename()">
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname"><br><br>
+            <img src="https://c.ndtvimg.com/2021-03/if3mlfvc_suez-canal_625x300_27_March_21.jpg">
+            <span style=" text-align: center; font-size: large;"> 45°17'04.6"N 86°55'10.4"W </span>
+            <span style=" text-align: center; font-size: small; margin-top: 30px;"> Which orchestra does this Greek guy like ? </span>
+
+          <form action="/user_response" onsubmit="return storeanswer()">
+            <label for="answer">Answer:</label>
+            <input type="text" id="answer" name="answer"><br><br>
             <input type="submit" value="Submit">
           </form>
         <br>
       </div>
-      
+
   </section>
 
 
 
 <script>
-   
+
   window.addEventListener('scroll', function() {
   let header = document.querySelector('header');
   header.classList.toggle('sticky', window.scrollY < 0);
 });
 
-  function storename() {
+  function storeanswer() {
     // Check browser support
     if (typeof(Storage) !== "undefined") {
       // Store
-      localStorage.setItem("name", document.getElementById('fname').value + ' ' + document.getElementById('lname').value);
-      // Retrieve
-      //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+      // retrieve try number
+      var cur_clue = window.location.pathname.replace('/','')
+      var value = localStorage.getItem(cur_clue)
+      if (value==null) {
+        value = {'max':0}
+      }else {
+        value = JSON.parse(value)
+        value['max'] += 1
+        value[value['max']] = document.getElementById('answer')
+      }
+
+      localStorage.setItem(cur_clue, JSON.stringify(value));
     } else {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }

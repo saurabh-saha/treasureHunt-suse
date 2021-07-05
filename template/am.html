@@ -9,7 +9,7 @@
 <body>
   <html lang="en">
 <head>
-  
+
 </head>
 <body>
 
@@ -22,34 +22,44 @@
 
     <section >
       <div class="title">
-          <form action="/user_response" onsubmit="return storename()">
-            <label for="fname">First name:</label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname"><br><br>
+            <img src="https://www.worldhistory.org/img/r/p/500x600/1163.jpg?v=1604599213">
+            <span style=" text-align: center; font-size: large;"> The people of Themyscira where Wonder Woman belongs are called _________
+             </span>
+          <form action="/user_response" onsubmit="return storeanswer()">
+            <label for="answer">Answer:</label>
+            <input type="text" id="answer" name="answer"><br><br>
             <input type="submit" value="Submit">
           </form>
         <br>
       </div>
-      
+
   </section>
 
 
 
 <script>
-   
+
   window.addEventListener('scroll', function() {
   let header = document.querySelector('header');
   header.classList.toggle('sticky', window.scrollY < 0);
 });
 
-  function storename() {
+  function storeanswer() {
     // Check browser support
     if (typeof(Storage) !== "undefined") {
       // Store
-      localStorage.setItem("name", document.getElementById('fname').value + ' ' + document.getElementById('lname').value);
-      // Retrieve
-      //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+      // retrieve try number
+      var cur_clue = window.location.pathname.replace('/','')
+      var value = localStorage.getItem(cur_clue)
+      if (value==null) {
+        value = {'max':0}
+      }else {
+        value = JSON.parse(value)
+        value['max'] += 1
+        value[value['max']] = document.getElementById('answer')
+      }
+
+      localStorage.setItem(cur_clue, JSON.stringify(value));
     } else {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
