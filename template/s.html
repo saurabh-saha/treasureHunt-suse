@@ -1,74 +1,92 @@
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
+  <title>Quetion 2</title>
+  <link rel="stylesheet"href="{{ url_for('static', filename='stylesheet/am.css') }}" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styleHead.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/welcomestyle.css') }}">
-  <title>TreasureHunt</b></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-  <html lang="en">
-<head>
 
-</head>
-<body>
+<body onload="closePopup()">
+  <div id="popup" class="uth-flare">
+    <div class="uth-flare-shade" onclick="closePopup()"></div>
+    <div class="uth-flare-box text-center align-middle">
+      <span>Here is the hint</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-7 uth-text-header" style="display: block;">Q2.</div>
+    </div>
+    <div class="row questions-section">
+      <div class="col-12 uth-text-strong text-center"> A tightrope walker is buying his favourite thing &nbsp; <span
+          class="material-icons uth-hint" onclick="openPopup()">info</span></div>
+    </div>
 
-  <header>
-		<a href="/" class="logo">Treasure<b style="color: darkorange;">Hunt</b></a>
-		<ul >
-      <li ><a href="#" id="line" style="margin-right: 150px;">LeaderBoard</a></li>
-		</ul>
-    </header>
+    <div class="row justify-content-center mb-2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Cambridgeslackerssaf40.jpg" class="img-fluid" style="width:500 !important;height:250 !important" />
+    </div>
 
-    <section >
-      <div class="title">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Cambridgeslackerssaf40.jpg">
-            <span style=" text-align: center; font-size: large;"> A tightrope walker is buying his favourite thing </span>
-            <a target="_blank" href="https://www.amazon.in/JIC-Products%C2%AE-Slackline-Complete-Perfect/dp/B08HDHC94B/ref=sr_1_2?dchild=1&keywords=slack+rope&qid=1625501251&sr=8-2">
-            on this website</a>
-            <span style=" text-align: center; font-size: large;"> Which application does this guy like ? </span>
-          <form action="/user_response" onsubmit="return storeanswer()">
-            <label for="answer">Answer:</label>
-            <input type="text" id="answer" name="answer"><br><br>
-            <input type="submit" value="Submit">
-          </form>
-        <br>
+    <form action="/user_response" onsubmit="return storeanswer()">
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <input type="text" size="50" placeholder="Enter Answer">
+        </div>
+        <div class="col-1 d-flex justify-content-center">
+          <button class="uth-btn-circle" onclick="return storeanswer()">
+            <span class="material-icons md-36 image-icon">arrow_forward</span>
+          </button>
+        </div>
       </div>
+    </form>
+    
+  </div>
 
-  </section>
 
 
+    <script>
 
-<script>
+      console.log("01101000 01110100 01110100 01110000 01110011 00111010 00101111 00101111 01110111 01110111 01110111 00101110 01100001 01101101 01100001 01111010 01101111 01101110 00101110 01101001 01101110 00101111 01001010 01001001 01000011 00101101 01010000 01110010 01101111 01100100 01110101 01100011 01110100 01110011 00100101 01000011 00110010 00100101 01000001 01000101 00101101 01010011 01101100 01100001 01100011 01101011 01101100 01101001 01101110 01100101 00101101 01000011 01101111 01101101 01110000 01101100 01100101 01110100 01100101 00101101 01010000 01100101 01110010 01100110 01100101 01100011 01110100 00101111 01100100 01110000 00101111 01000010 00110000 00111000 01001000 01000100 01001000 01000011 00111001 00110100 01000010 00101111 01110010 01100101 01100110 00111101 01110011 01110010 01011111 00110001 01011111 00110010 00111111 01100100 01100011 01101000 01101001 01101100 01100100 00111101 00110001 00100110 01101011 01100101 01111001 01110111 01101111 01110010 01100100 01110011 00111101 01110011 01101100 01100001 01100011 01101011 00101011 01110010 01101111 01110000 01100101 00100110 01110001 01101001 01100100 00111101 00110001 00110110 00110010 00110101 00110101 00110000 00110001 00110010 00110101 00110001 00100110 01110011 01110010 00111101 00111000 00101101 00110010")
 
-  window.addEventListener('scroll', function() {
-  let header = document.querySelector('header');
-  header.classList.toggle('sticky', window.scrollY < 0);
-});
+      window.addEventListener('scroll', function () {
+        let header = document.querySelector('header');
+        header.classList.toggle('sticky', window.scrollY < 0);
+      });
 
-  function storeanswer() {
-    // Check browser support
-    if (typeof(Storage) !== "undefined") {
-      // Store
-      // retrieve try number
-      var cur_clue = window.location.pathname.replace('/','')
-      var value = localStorage.getItem(cur_clue)
-      if (value==null) {
-        value = {'max':0}
-      }else {
-        value = JSON.parse(value)
-        value['max'] += 1
-        value[value['max']] = document.getElementById('answer')
+      function storeanswer() {
+        // Check browser support
+        if (typeof (Storage) !== "undefined") {
+          // Store
+          // retrieve try number
+          var cur_clue = window.location.pathname.replace('/', '')
+          var value = localStorage.getItem(cur_clue)
+          if (value == null) {
+            value = { 'max': 0 }
+          } else {
+            value = JSON.parse(value)
+            value['max'] += 1
+            value[value['max']] = document.getElementById('answer')
+          }
+
+          localStorage.setItem(cur_clue, JSON.stringify(value));
+        } else {
+          document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+
       }
 
-      localStorage.setItem(cur_clue, JSON.stringify(value));
-    } else {
-      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-    }
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+      }
+      function openPopup() {
+        document.getElementById("popup").style.display = "block";
+      }
 
-  }
+    </script>
 
-</script>
+  </body>
 
-</body>
-</html>
+  </html>
