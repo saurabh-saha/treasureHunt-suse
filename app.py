@@ -20,7 +20,7 @@ app = Flask(__name__ , template_folder='template')
 @app.route("/")
 def hello():
     return redirect('/home')
-
+    
 @app.route("/<cclue>")
 def home(cclue):
     return render_template(cclue+'.html')
