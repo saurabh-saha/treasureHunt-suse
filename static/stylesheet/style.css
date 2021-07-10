@@ -53,6 +53,13 @@ input:focus{
     font-weight: 900;
 }
 
+.uth-text-sub-header
+{
+    color: var(--bg1-secondary);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
 .uth-text-strong
 {
     font-weight: 900;

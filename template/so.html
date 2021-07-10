@@ -1,7 +1,9 @@
 <html>
 
 <head>
-  <title>Quetion 2</title>
+  <title>Treasure Hunt</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/a.css') }}" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,7 +21,7 @@
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-7 uth-text-header" style="display: block;">Q2</div>
+      <div class="uth-text-header text-center" style="display: block;">Q8</div>
     </div>
 
     <div class="row questions-section">
@@ -45,10 +47,12 @@
 
   <script>
 
+    /*
     window.addEventListener('scroll', function () {
       let header = document.querySelector('header');
       header.classList.toggle('sticky', window.scrollY < 0);
     });
+    */
 
     function storeanswer() {
       // Check browser support

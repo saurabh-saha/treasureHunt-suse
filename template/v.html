@@ -1,7 +1,9 @@
 <html>
 
 <head>
-  <title>Quetion 2</title>
+  <title>Treasure Hunt</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/a.css') }}" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,14 +16,16 @@
   <div id="popup" class="uth-flare">
     <div class="uth-flare-shade" onclick="closePopup()"></div>
     <div class="uth-flare-box text-center align-middle">
-      <span>Here is the hint</span>
+      <span>How about find the pattern ?</span>
     </div>
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-7 uth-text-header" style="display: block;">Q2</div>
+      <div class="uth-text-header text-center" style="display: block;">Q7</div>
     </div>
-
+    <div class="row justify-content-center">
+      <div class="uth-text-sub-header text-center" style="display: block;">Guess the Software</div>
+    </div>
     <div class="row questions-section">
       <div class="col-12 uth-text-strong text-center"> A->C, M->O, X->Z <br> Which software is mispelled as TYEPYLR
         &nbsp; <span class="material-icons uth-hint" onclick="openPopup()">info</span></div>
@@ -44,10 +48,12 @@
 
   <script>
 
+    /*
     window.addEventListener('scroll', function () {
       let header = document.querySelector('header');
       header.classList.toggle('sticky', window.scrollY < 0);
     });
+    */
 
     function storeanswer() {
       // Check browser support

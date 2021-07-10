@@ -1,7 +1,9 @@
 <html>
 
 <head>
-  <title>Quetion 2</title>
+  <title>Treasure Hunt</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/am.css') }}" type="text/css" />
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,12 +16,15 @@
   <div id="popup" class="uth-flare">
     <div class="uth-flare-shade" onclick="closePopup()"></div>
     <div class="uth-flare-box text-center align-middle">
-      <span>Here is the hint</span>
+      <span>If you see only question, you need to expand your vision.</span>
     </div>
   </div>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-7 uth-text-header" style="display: block;">Q2</div>
+      <div class="uth-text-header text-center" style="display: block;">Q5</div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="uth-text-sub-header text-center" style="display: block;">Guess the product</div>
     </div>
     <div class="row questions-section">
       <div class="col-12 uth-text-strong text-center">I am a mini computer, and <br> I am not a cherry <br> But I am
@@ -46,12 +51,14 @@
 
   <script>
 
-    console.log("You can find it here " + String.fromCodePoint(0x1F449) + "https://www.google.com/maps/@44.9422289,-93.0901953,2a,75y,10.74h,97.31t/data=!3m7!1e1!3m5!1s2kU8CPk_j0GkzK1tt2DQJw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fpanoid%3D2kU8CPk_j0GkzK1tt2DQJw%26cb_client%3Dmaps_sv.tactile.gps%26w%3D203%26h%3D100%26yaw%3D182.32149%26pitch%3D0%26thumbfov%3D100!7i13312!8i6656");
+    console.log("You can find it here " + String.fromCodePoint(0x1F449) + "https://www.google.com/maps/@44.9423064,-93.0910495,2a,75y,262.19h,86.04t/data=!3m6!1e1!3m4!1srTQ5NBt3tcL7z_cTDUTTVQ!2e0!7i13312!8i6656");
 
+    /*
     window.addEventListener('scroll', function () {
       let header = document.querySelector('header');
       header.classList.toggle('sticky', window.scrollY < 0);
     });
+    */
 
     function storeanswer() {
       // Check browser support
