@@ -5,6 +5,48 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styleHead.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/welcomestyle.css') }}">
   <title>TreasureHunt</b></title>
+  <style>
+    
+#neonShadow{
+  display:block;
+  height:50px;
+  width:100px;
+  border:none;
+  border-radius:50px;
+  transition:0.3s;
+  background-color:rgba(156, 161, 160,0.3);
+  animation: glow 1s infinite ;
+  transition:0.5s;
+  color:white;
+}
+
+#neonShadow:hover{
+  transform:scale(1.5);
+  border-radius:7.5;
+  background-color:#ffe263;
+  transition:0.5s;
+  color:black;
+}
+
+@keyframes glow{
+  0%{
+  box-shadow: 5px 5px 20px rgb(110, 255, 134),-5px -5px 20px rgb(110, 255, 134);}
+  
+  50%{
+  box-shadow: 5px 5px 20px rgb(81, 224, 210),-5px -5px 20px rgb(81, 224, 210)
+  }
+  100%{
+  box-shadow: 5px 5px 20px rgb(110, 255, 134),-5px -5px 20px rgb(110, 255, 134)
+  }
+}
+a.button {text-decoration: none;
+    color: initial;
+}
+
+a {text-decoration: none;
+    color: initial;
+}
+    </style>
 </head>
 <body>
   <html lang="en">
@@ -20,11 +62,13 @@
 		</ul>
     </header>
 
-    <section >
+    <section style="text-align: center; align-content: center;">
       <div class="title">
-        <span>You are a winner. Register your bragging points here</span>
-        <a href="https://forms.gle/3u51PVVbjDvpNoRp7" class="texts"><span style=" text-align: center; font-size: large;"> Google Form </span></a>
+        <span style="color: white;">You are a winner. Register your bragging points here</span>
+        <!--<a href="https://forms.gle/3u51PVVbjDvpNoRp7" class="texts"><span style=" text-align: center; font-size: large;"> Google Form </span>-->
         
+          <a href="https://forms.gle/3u51PVVbjDvpNoRp7"><button id="neonShadow" style="margin: auto; margin-top: 10px;">Google Form</button></a>
+
        <br>
       </div>
       

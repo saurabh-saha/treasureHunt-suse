@@ -211,8 +211,8 @@
     <h2>Enter Your Name</h2>
     <form action="/user_response" onsubmit="return storename()" class="form">
       <div class="user-box">
-        <input class="input" type="text" id="" required="">
-        <label class="label" for="">Name</label>
+        <input class="input" type="text" id="fname" required>
+        <label class="label" >Name</label>
       </div>
       <!-- /.user-box -->
       
@@ -246,7 +246,7 @@
     // Check browser support
     if (typeof(Storage) !== "undefined") {
       // Store
-      localStorage.setItem("name", document.getElementById('fname').value + ' ' + document.getElementById('lname').value);
+      localStorage.setItem("name", document.getElementById('fname').value);
       // Retrieve
       //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
     } else {

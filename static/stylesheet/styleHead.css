@@ -84,7 +84,6 @@ header {
     color: #000;
     letter-spacing: 2px;
     font-weight: 500;
-    transiton: 0.6s;
   }
   header ul li:hover {
     animation: pulse 1s 2;
