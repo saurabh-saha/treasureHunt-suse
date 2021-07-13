@@ -4,6 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styleHead.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/welcomestyle.css') }}">
+  <script type="text/javascript"
+         src="{{ url_for('static', filename='main.js') }}"></script>
   <title>TreasureHunt</b></title>
   <style>
     
@@ -208,11 +210,11 @@
 
     
   <div class="login-box">
-    <h2>Enter Your Name</h2>
+    <h2>Enter Your Display Name</h2>
     <form action="/user_response" onsubmit="return storename()" class="form">
       <div class="user-box">
         <input class="input" type="text" id="fname" required>
-        <label class="label" >Name</label>
+        <label class="label" >Display Name</label>
       </div>
       <!-- /.user-box -->
       
@@ -241,20 +243,6 @@
   let header = document.querySelector('header');
   header.classList.toggle('sticky', window.scrollY < 0);
 });
-
-  function storename() {
-    // Check browser support
-    if (typeof(Storage) !== "undefined") {
-      // Store
-      localStorage.setItem("name", document.getElementById('fname').value);
-      // Retrieve
-      //document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-    } else {
-      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-    }
-
-  }
-
 </script>
 
 </body>
