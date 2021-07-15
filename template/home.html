@@ -4,8 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styleHead.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/welcomestyle.css') }}">
-  <script type="text/javascript"
-         src="{{ url_for('static', filename='main.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
   <title>TreasureHunt</b></title>
   <style>
     
@@ -214,7 +213,7 @@
     <form action="/user_response" onsubmit="return storename()" class="form">
       <div class="user-box">
         <input class="input" type="text" id="fname" required>
-        <label class="label" >Display Name</label>
+        <label class="label name" >Slack Display Name (e.x Palak.Udacity)</label>
       </div>
       <!-- /.user-box -->
       
