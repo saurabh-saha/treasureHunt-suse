@@ -23,7 +23,7 @@ answers_mapping = {
     'd' : 'django',
     's' : 'slack',
     'am' : 'amazon',
-    'r' : 'rasberry pi',
+    'r' : 'raspberry pi',
     'so' : 'docker',
     'ar' : 'argocd',
     'k' : 'kubernetes',
@@ -42,7 +42,7 @@ def home(cclue):
 
 @app.route("/user_response")
 def response():
-    answer = request.args['answer']
+    answer = request.args['answer'].lower()
     cpage = request.args['cpage']
     if answers_mapping[cpage].lower() != answer:
         ans = {'err' : 'wrong answer'}
