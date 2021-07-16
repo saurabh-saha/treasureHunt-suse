@@ -43,6 +43,8 @@ function storename() {
             success: function(data, textStatus, request){
                 if (data.hasOwnProperty('err')) {
                     console.log(data['err'])
+                    $(".wrong").show()
+                    setTimeout(function() { $(".wrong").hide(); }, 1500);
                 } else {
                     window.location.href = "/"+data['done'];
                 }
@@ -56,3 +58,19 @@ function storename() {
   function openPopup() {
     document.getElementById("popup").style.display = "block";
   }
+
+  $( document ).ready(function() {
+    $('.response').html(`
+        <div class="row justify-content-center">
+        <div class="col-5">
+          <input type="text" size="50" placeholder="Enter Answer" id='answer' name="answer" required>
+          <span style="display:none" class="wrong">Wrong Answer</span>
+        </div>
+        <div class="col-1 d-flex justify-content-center">
+          <button class="uth-btn-circle" onclick="storeanswer()">
+            <span class="material-icons md-36 image-icon">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    `)
+  });

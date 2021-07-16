@@ -12,7 +12,8 @@ response_mapping = {
     'r' : 'so',
     'so' : 'ar',
     'ar' : 'k',
-    'k' : 'thank'
+    'k' : 'thank',
+    'n' : 'k'
 }
 
 answers_mapping = {
@@ -25,7 +26,8 @@ answers_mapping = {
     'r' : 'rasberry pi',
     'so' : 'docker',
     'ar' : 'argocd',
-    'k' : 'kubernetes'
+    'k' : 'kubernetes',
+    'n' : 'nginx'
 }
 
 app = Flask(__name__ , template_folder='template')
