@@ -15,11 +15,24 @@ response_mapping = {
     'k' : 'thank'
 }
 
+answers_mapping = {
+    'f' : 'flask',
+    'a' : 'apple',
+    'v' : 'vagrant',
+    'd' : 'django',
+    's' : 'slack',
+    'am' : 'amazon',
+    'r' : 'rasberry pi',
+    'so' : 'docker',
+    'ar' : 'argocd',
+    'k' : 'kubernetes'
+}
+
 app = Flask(__name__ , template_folder='template')
 
 @app.route("/")
 def hello():
-    return redirect('/home')
+    return redirect('/f')
     
 @app.route("/<cclue>")
 def home(cclue):
@@ -27,10 +40,14 @@ def home(cclue):
 
 @app.route("/user_response")
 def response():
-    #print(request.args)
-    done_clue_name = request.referrer.split('/')[-1]
-    next_clue_name = response_mapping[done_clue_name]
-    return redirect('/'+next_clue_name)
+    answer = request.args['answer']
+    cpage = request.args['cpage']
+    if answers_mapping[cpage].lower() != answer:
+        ans = {'err' : 'wrong answer'}
+    else:
+        ans = {'done' : response_mapping[cpage]}
+    print(ans)
+    return ans
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port='5000')

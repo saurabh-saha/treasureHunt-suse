@@ -30,6 +30,24 @@ function storename() {
     } else {
       document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
     }
+    checkanswer(answer, cur_clue)
+  }
+
+  function checkanswer(answer, cpage){
+    $.ajax({
+            headers: { "Accept": "application/json"},
+            type: 'GET',
+            url: '/user_response',
+            crossDomain: true,
+            data: {'answer': answer, 'cpage': cpage},
+            success: function(data, textStatus, request){
+                if (data.hasOwnProperty('err')) {
+                    console.log(data['err'])
+                } else {
+                    window.location.href = "/"+data['done'];
+                }
+            }
+    });
   }
 
   function closePopup() {
